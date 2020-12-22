@@ -44,18 +44,18 @@ void setup() {
 
 void loop() {
 
-  digitalWrite(2, LOW);//O_  _O 燈的狀態(O=亮, _ =不亮)
+  digitalWrite(2, LOW);//O 1_1 O 燈的狀態(O=亮, 1=不亮)
   digitalWrite(5, LOW);   
   alarmClockBeep(buzzerPin);//呼叫蜂鳴器
   delay(200);                       
-  digitalWrite(2, HIGH);//__  __
+  digitalWrite(2, HIGH);//1 1_1 1
   digitalWrite(5, HIGH);
   delay(200);   
-  digitalWrite(3, LOW);//_O  O_
+  digitalWrite(3, LOW);//1 O_O 1
   digitalWrite(4, LOW);   
   alarmClockBeep(buzzerPin);//呼叫蜂鳴器
   delay(200); 
-  digitalWrite(3, HIGH);//__  __
+  digitalWrite(3, HIGH);//1 1_1 1
   digitalWrite(4, HIGH);    
   delay(200);                      
 }
@@ -66,4 +66,4 @@ void alarmClockBeep(int pin) {
   delay(50);  
   }
 ```
-## 功能：使LED來回亮(O_  _O 到 _O  O_),並在切換狀態時,使蜂鳴器叫。
+## 功能：使LED來回亮(O 1_1 O 到 1 O_O 1),並在切換狀態時,使蜂鳴器叫。(O=亮, 1=不亮)
