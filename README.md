@@ -204,8 +204,72 @@ void disp(int num)
 }
 ```
 #### 功能：啟動時從0顯示到9999後重來
+## 12月1日
+### RC馬達
+```C++
+#include <Servo.h>
+Servo myservo;
+int x = 0;
+void setup()
+{  
+   pinMode(7, OUTPUT);
+   pinMode(6, OUTPUT);
+   pinMode(5, OUTPUT);
+   pinMode(2, OUTPUT);
+  myservo.attach(9); 
+}
+
+void loop() 
+{  
+     if (digitalRead(3)==0)
+   {
+    while(digitalRead(3)==0)
+    {
+      
+     }
+      x= x+1;
+      if (x>4)
+      {
+       x=0; 
+   }
+    }
+
+   switch (x)
+   {
+     case 0 :
+      pinMode(2, LOW);
+      pinMode(6, LOW);
+      pinMode(7, LOW);
+      pinMode(5, LOW);
+      delay(50);
+     break; 
+     case 1 :
+      myservo.write(180);//(hz)(數值越高越快)
+      pinMode(2, HIGH);//LED
+      delay(50);
+     break;
+     case 2 :
+      myservo.write(150);
+      pinMode(5, HIGH);//LED
+      delay(50);
+     break;
+     case 3 :
+      myservo.write(120);
+      pinMode(6, HIGH);//LED
+      delay(50);
+     break;
+     case 4 :
+      myservo.write(90);
+      pinMode(7, HIGH);//LED
+      delay(50);
+     break;
+    
+   }
+}
+```
+#### 功能：按鈕可控制速度,快到慢(4種速度)
 ## 12月8日
-### 按鈕控制風扇(繼電器)
+### 按鈕控制風扇
 ```C++
 int IN=0;
 int OUT=0;
