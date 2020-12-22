@@ -1,34 +1,5 @@
 # Arunduino
 ## 11月3日
-### 來回燈
-```C++
-void setup() {
-  for (int i=2; i<=9; i++)
-  {
-  pinMode(i, OUTPUT);//設輸出腳位2~9
-  digitalWrite(i, 1);//一開始都不亮
-  }
-  
-}
-
-void loop() {
-  for ( int i=2; i<=9; i++)
-  {
-  digitalWrite(i, LOW);//腳位i亮(2~9)
-  delay(200); 
-  digitalWrite(i, HIGH);//腳位i不亮
-  delay(200);                                     
-  }    
-  for ( int i=9; i>=2; i--)
-  {
-  digitalWrite(i, LOW);//腳位i亮(9~2)
-  delay(200); 
-  digitalWrite(i, HIGH);//腳位i不亮
-  delay(200);                                     
-  }          
-}
-```
-## 功能：使LED來回亮(從腳位2到9,再從9到2)。
 ### 平交道
 ```C++
 int buzzerPin=9;
@@ -66,7 +37,7 @@ void alarmClockBeep(int pin) {
   delay(50);  
   }
 ```
-## 功能：使LED來回亮(O 1_1 O 到 1 O_O 1),並在切換狀態時,使蜂鳴器叫。(O=亮, 1=不亮)
+#### 功能：使LED來回亮(O 1_1 O 到 1 O_O 1),並在切換狀態時,使蜂鳴器叫。(O=亮, 1=不亮)
 ## 11月10日
 ### 按鈕控制LED
 ```C++  
@@ -116,7 +87,7 @@ void loop() {
 
   } 
 ```
-## 功能：當按下按鈕時,LED依序亮(1111--0111--0011--0001--0000--1111)(0=亮,1=不亮)
+#### 功能：當按下按鈕時,LED依序亮(1111--0111--0011--0001--0000--1111)(0=亮,1=不亮)
 ## 11月17日
 ### 按鈕控制RGB燈
 ```C++
@@ -174,7 +145,7 @@ void RGB (int r,int g,int b)
    analogWrite(11,b);//B  
 }
 ```
-## 功能：按按鈕(使y數值改變),依y之數值亮各種顏色的燈
+#### 功能：按按鈕(使y數值改變),依y之數值亮各種顏色的燈
 ## 11月24日
 ### 從0到9999(七段顯示)
 ```C++
@@ -232,4 +203,4 @@ void disp(int num)
     digitalWrite(seg[i],data[num][i]);//顯示數字
 }
 ```
-## 功能：啟動時從0顯示到9999後歸零
+#### 功能：啟動時從0顯示到9999後歸零
