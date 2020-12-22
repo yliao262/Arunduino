@@ -3,10 +3,10 @@
 ### 來回燈
 ```C++
 void setup() {
-  for (int i=2; i<=9; i++)//設輸出腳位2~9,並都不亮
+  for (int i=2; i<=9; i++)
   {
-  pinMode(i, OUTPUT);
-  digitalWrite(i, 1);
+  pinMode(i, OUTPUT);//設輸出腳位2~9
+  digitalWrite(i, 1);//一開始都不亮
   }
   
 }
