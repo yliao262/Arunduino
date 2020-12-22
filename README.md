@@ -1,6 +1,6 @@
 Arunduino
 ##11月3日
-'''C++
+```C++
 void setup() {
   for (int i=2; i<=9; i++)
   {
@@ -26,5 +26,5 @@ void loop() {
   delay(200);                                     
   }          
 }
-'''
+```
 
