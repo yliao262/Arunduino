@@ -371,3 +371,131 @@ void R (int r)
 }
 ```
 #### 功能：button2(電源)可開關風扇,button1(控速鈕)可控速
+## 12月8日
+### 液晶螢幕顯示
+```C++
+ /*
+  The circuit:  //相關資訊
+ * LCD RS pin to digital pin 12
+ * LCD Enable pin to digital pin 11
+ * LCD D4 pin to digital pin 5
+ * LCD D5 pin to digital pin 4
+ * LCD D6 pin to digital pin 3
+ * LCD D7 pin to digital pin 2
+ * LCD R/W pin to ground
+ * LCD VSS pin to ground
+ * LCD VCC pin to 5V
+ * 10K resistor:
+ * ends to +5V and ground
+ * wiper to LCD VO pin (pin 3)
+ */
+// include the library code:
+
+#include <LiquidCrystal.h>
+int x= 0;
+String a[]={"A","B","C","D"};//上到下的陣列
+String b[]={"C","D","A","B"};//下到上的陣列
+int b1= 0;
+int b2= 0;
+int c1= 0;
+int c2= 0;
+int d= 1;
+               // initialize the library by associating any needed LCD interface pin
+               // with the arduino pin number it is connected to
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+
+}
+
+void loop() {
+  if(x==0)
+  {
+      lcd.setCursor(0, 0); //啟動時顯示"welcome"
+      lcd.print("welcome");
+    if(digitalRead(7)==0)
+  {
+    lcd.clear(); //按按鈕後,清除文字,顯示 "A" "B"
+    while(digitalRead(7)==0)
+    x=1;
+  }
+    if(digitalRead(8)==0)
+  {
+    lcd.clear();  //按按鈕後,清除文字,顯示 "A" "B"
+    while(digitalRead(8)==0)
+    x=1;
+  }
+  }
+  if(x==1)
+  { 
+  if(digitalRead(7)==0)//加
+  {
+    d=1;
+    lcd.clear();
+    while(digitalRead(7)==0)
+    delay(500);
+    b1++;
+    c1=0;
+    if(b1>2)
+    {
+      b1=-1;
+      c1=1;}
+  }
+  if(d==1)
+  {
+  if(c1<1)
+  {
+      lcd.setCursor(0, 0);
+      lcd.print(a[b1]);
+      lcd.setCursor(0, 1);
+      lcd.print(a[b1+1]);
+  }
+  else
+  {
+      lcd.setCursor(0, 0);
+      lcd.print(a[3]);
+      lcd.setCursor(0, 1);
+      lcd.print(a[0]);
+  }
+  }
+      if(digitalRead(8)==0)//減
+  {
+    d=2;
+    lcd.clear();
+    while(digitalRead(8)==0)
+    delay(500);
+    b1--;
+    c2=0;
+    if(b1<0)
+    {
+      b1=3;
+      c2=1;}
+  }
+    if(d==2)
+  {
+  if(c2<1)
+  {
+      lcd.setCursor(0, 0);
+      lcd.print(a[b1]);
+      lcd.setCursor(0, 1);
+      lcd.print(a[b1+1]);
+  }
+  else
+  {
+      lcd.setCursor(0, 0);
+      lcd.print(a[3]);
+      lcd.setCursor(0, 1);
+      lcd.print(a[0]);
+  }
+  }
+  }
+}
+  // set the cursor to column 0, line 1
+  // (note: line 1 is the second row, since counting begins with 0):
+  // print the number of seconds since reset://lcd.print(millis() / 1000);
+```
+#### 功能：按鈕(加)可使ABCD由上到下顯示.按鈕(減)可使ABCD由下到到顯示  (按一次變化一次)
