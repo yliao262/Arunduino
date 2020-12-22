@@ -203,4 +203,107 @@ void disp(int num)
     digitalWrite(seg[i],data[num][i]);//顯示數字
 }
 ```
-#### 功能：啟動時從0顯示到9999後歸零
+#### 功能：啟動時從0顯示到9999後重來
+## 12月1日
+### 按鈕控制LED(繼電器)
+```C++
+int IN=0;
+int OUT=0;
+void setup() {
+  Serial.begin(9600);
+  // put your setup code here, to run once:// 4  6  7  8  10  
+  pinMode(2,OUTPUT);//3  (類比輸出)
+  pinMode(3,OUTPUT);//2
+  pinMode(9,OUTPUT);//1
+  pinMode(4,OUTPUT);//LED
+  pinMode(6,OUTPUT);//LED
+  pinMode(7,OUTPUT);//LED
+  pinMode(8,OUTPUT);//LED
+  pinMode(10,OUTPUT);//LED
+  pinMode(5,INPUT);//button1
+  pinMode(11,INPUT);//button2
+}
+
+void loop() {
+ 
+ while(digitalRead(11)==0){
+   
+   if (digitalRead(11)==0) { //button2按下時,OUT+1(OUT>1,OUT歸零)(此按鈕視為電源開關)
+      delay(250);
+      OUT++;
+      if (OUT>1)
+      {
+        OUT=0;
+      }
+    }
+    else {digitalWrite(4, HIGH);}
+    Serial.print("IN = ");
+  Serial.println(IN);
+   }
+  if (OUT==1)  //(電源開啟)
+  {
+   while(digitalRead(5)==0){
+   
+   if (digitalRead(5)==0) { //button1按下時,IN+1(IN>4,IN歸零)(此按鈕可控制速度,從慢到快)(共有4種速度)
+      digitalWrite(4, LOW);
+      delay(250);
+      IN++;
+      if (IN>4)
+      {
+        IN=0;
+      }
+    }
+    else {digitalWrite(4, HIGH);}
+    Serial.print("IN = ");
+  Serial.println(IN);
+   }
+    
+    switch (IN){ //各種速度
+      case 0:
+       R (130);
+       digitalWrite(4, LOW);
+       digitalWrite(6, HIGH);
+       digitalWrite(7, HIGH);
+       digitalWrite(8, HIGH);
+       digitalWrite(11, HIGH);
+      break;
+      case 1:
+       R (150);
+       digitalWrite(6, LOW);
+      break;
+      case 2:
+       R (180);
+       digitalWrite(7, LOW);
+
+      break;
+      case 3:
+       R (220);
+       digitalWrite(8, LOW);
+
+      break;
+      case 4:
+       R (255);
+       digitalWrite(11, LOW);
+
+      break;
+    }
+  }
+  if (OUT==0)/////
+  {
+    S();
+    digitalWrite(4, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(8, HIGH);
+    digitalWrite(10, HIGH);
+  }
+}
+void R (int r)
+{
+  analogWrite(2,0);//3  (類比訊號可用之腳位數字旁需有(~),例：~2,~3,~9 等)
+  analogWrite(3,0);//2
+  analogWrite(9,r);//1
+  
+}
+```
+#### 功能：button2(電源)可開關風扇,button1(控速鈕)可控速
