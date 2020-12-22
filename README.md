@@ -1,5 +1,34 @@
 # Arunduino
 ## 11月3日
+### 來回燈
+```C++
+void setup() {
+  for (int i=2; i<=9; i++)
+  {
+  pinMode(i, OUTPUT);//設輸出腳位2~9
+  digitalWrite(i, 1);
+  }
+  
+}
+
+void loop() {
+  for ( int i=2; i<=9; i++)//從2亮到9
+  {
+  digitalWrite(i, LOW);  
+  delay(200); 
+  digitalWrite(i, HIGH);  
+  delay(200);                                     
+  }    
+  for ( int i=9; i>=2; i--)//從9亮到2
+  {
+  digitalWrite(i, LOW);  
+  delay(200); 
+  digitalWrite(i, HIGH);  
+  delay(200);                                     
+  }          
+}
+```
+#### 功能：使LED來回移動(2~9)(9~2)
 ### 平交道
 ```C++
 int buzzerPin=9;
@@ -371,7 +400,7 @@ void R (int r)
 }
 ```
 #### 功能：button2(電源)可開關風扇,button1(控速鈕)可控速
-## 12月8日
+## 12月15日
 ### 液晶螢幕顯示
 ```C++
  /*
