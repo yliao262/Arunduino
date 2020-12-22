@@ -28,4 +28,42 @@ void loop() {
   }          
 }
 ```
+## 功能：使LED來回亮(從腳位2到9,再從9到2)。
+### 平交道
+```C++
+int buzzerPin=9;
 
+void setup() {
+  for (int i=2; i<=5; i++)
+  {
+  pinMode(i, OUTPUT);//設輸出腳位2~5
+  digitalWrite(i, HIGH);//一開始都不亮
+  }
+  pinMode(buzzerPin, OUTPUT);//蜂鳴器輸出腳位
+}
+
+void loop() {
+
+  digitalWrite(2, LOW);//O_  _O 燈的狀態(O=亮, _ =不亮)
+  digitalWrite(5, LOW);   
+  alarmClockBeep(buzzerPin);//呼叫蜂鳴器
+  delay(200);                       
+  digitalWrite(2, HIGH);//__  __
+  digitalWrite(5, HIGH);
+  delay(200);   
+  digitalWrite(3, LOW);//_O  O_
+  digitalWrite(4, LOW);   
+  alarmClockBeep(buzzerPin);//呼叫蜂鳴器
+  delay(200); 
+  digitalWrite(3, HIGH);//__  __
+  digitalWrite(4, HIGH);    
+  delay(200);                      
+}
+
+void alarmClockBeep(int pin) {
+
+  tone(pin, 1000, 100);//tone(腳位, 頻率, 持續時間);
+  delay(50);  
+  }
+```
+## 功能：使LED來回亮(O_  _O 到 _O  O_),並在切換狀態時,使蜂鳴器叫。
