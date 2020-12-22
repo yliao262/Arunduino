@@ -117,7 +117,7 @@ void loop() {
   } 
 ```
 ## 功能：當按下按鈕時,LED依序亮(1111--0111--0011--0001--0000--1111)(0=亮,1=不亮)
-## 11月10日
+## 11月17日
 ### 按鈕控制RGB燈
 ```C++
 int x=0;
@@ -174,3 +174,62 @@ void RGB (int r,int g,int b)
    analogWrite(11,b);//B  
 }
 ```
+## 功能：按按鈕(使y數值改變),依y之數值亮各種顏色的燈
+## 11月24日
+### 從0到9999(七段顯示)
+```C++
+const boolean data[10][7] = {
+  {1, 1, 1, 1, 1, 1, 0}, // 0 (七段顯示的數字0~9)
+  {0, 1, 1, 0, 0, 0, 0}, // 1
+  {1, 1, 0, 1, 1, 0, 1}, // 2
+  {1, 1, 1, 1, 0, 0, 1}, // 3
+  {0, 1, 1, 0, 0, 1, 1}, // 4
+  {1, 0, 1, 1, 0, 1, 1}, // 5
+  {1, 0, 1, 1, 1, 1, 1}, // 6
+  {1, 1, 1, 0, 0, 0, 0}, // 7
+  {1, 1, 1, 1, 1, 1, 1}, // 8
+  {1, 1, 1, 1, 0, 1, 1}, // 9
+};
+byte seg[7] = {2,3,4,5,6,7,8};//輸出腳位2~8(七段)(a,b,c,d,e,f,g)
+byte scan[4] = {12,11,10,9};//輸出腳位9~12(com)
+byte number[4];
+void setup() {
+  for(int i=0;i<7;i++)
+    pinMode(seg[i],OUTPUT);  
+  for(int i=0;i<4;i++)
+    pinMode(scan[i],OUTPUT);  
+}
+
+unsigned long oldtime=millis();//時間存檔點(開機時的時間)(第0秒)
+int i=0;
+void loop() {
+  if(millis()-oldtime>=300)//當下時間-時間存檔點>300毫秒時,i+1(i>9999時,i歸零),時間存檔點更新為當下時間
+    {
+      oldtime = millis();
+      i++;
+      if(i>9999)
+        i = 0;
+    }
+  number[3]= i /1000;//千位
+  number[2]= (i - number[3] * 1000) / 100;//百位
+  number[1]= (i - number[3] * 1000-number[2]*100) / 10;//十位
+  number[0]= i % 10;//個位
+  for(int j= 3;j>0;j--)
+    Serial.print(number[j]);
+  Serial.println('.');    
+  for(int j=0;j<4;j++)
+    { 
+      disp(number[j]); //j=(個十百千)(com)           
+      digitalWrite(scan[j],HIGH);//(com)
+      delay(5);
+      digitalWrite(scan[j],LOW);//(com)          
+     } 
+}
+
+void disp(int num)
+{
+  for(int i=0;i<7;i++)
+    digitalWrite(seg[i],data[num][i]);//顯示數字
+}
+```
+## 功能：啟動時從0顯示到9999後歸零
