@@ -125,8 +125,8 @@ void loop() {
 int x=0;
 int y=0;
 void setup() {   
-   pinMode(2, INPUT);
-  for(int i=9 ;i<12 ;i++)//設輸出腳位9~12
+   pinMode(2, INPUT);//設輸入腳位2
+  for(int i=9 ;i<11 ;i++)//設輸出腳位9~11
   {
    pinMode(i,OUTPUT );
   }
