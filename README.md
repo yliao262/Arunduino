@@ -3,33 +3,33 @@
 ### 來回燈
 ```C++
 void setup() {
-  for (int i=2; i<=9; i++)
+  for (int i=2; i<=10; i++)
   {
-  pinMode(i, OUTPUT);//設輸出腳位2~9
+  pinMode(i, OUTPUT);//設輸出腳位2~10
   digitalWrite(i, 1);
   }
   
 }
 
 void loop() {
-  for ( int i=2; i<=9; i++)//從2亮到9
+  for ( int i=2; i<=10; i++)//從2亮到10
   {
   digitalWrite(i, LOW);  
-  delay(200); 
+  delay(20); 
   digitalWrite(i, HIGH);  
-  delay(200);                                     
+  delay(20);                                     
   }    
-  for ( int i=9; i>=2; i--)//從9亮到2
+  for ( int i=10; i>=2; i--)//從10亮到2
   {
   digitalWrite(i, LOW);  
-  delay(200); 
+  delay(20); 
   digitalWrite(i, HIGH);  
-  delay(200);                                     
+  delay(20);                                     
   }          
 }
 ```
 #### 功能：使LED來回移動(2~9)(9~2)
-### 平交道
+### 平交道燈
 ```C++
 int buzzerPin=9;
 
