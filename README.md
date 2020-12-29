@@ -579,6 +579,6 @@ void loop() {
 ```
 #### 功能：溫度(>=)27度並(<=)29度時燈會亮 否則不亮
 ### 當前溫度(>=)29度
-![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0528.JPG)
-### 當前溫度(<=)27度
 ![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0526.JPG)
+### 當前溫度(<=)27度
+![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0528.JPG)
