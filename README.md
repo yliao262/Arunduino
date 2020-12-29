@@ -117,6 +117,8 @@ void loop() {
   } 
 ```
 #### 功能：當按下按鈕時,LED依序亮(1111--0111--0011--0001--0000--1111)(0=亮,1=不亮)
+#### 當前溫度(>=)29度
+![](https://github.com/yliao262/Arunduino/blob/main/%E6%8C%89%E9%88%95LED%E5%BD%B1/MOV_0513.mp4)
 ## 11月17日
 ### 按鈕控制RGB燈
 ```C++
@@ -578,11 +580,11 @@ void loop() {
 }
 ```
 #### 功能：溫度(>=)27度並(<=)29度時燈會亮 否則不亮
-### 當前溫度(>=)29度
+#### 當前溫度(>=)29度
 ![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0526.JPG)
-### 當前溫度(<=)27度
+#### 當前溫度(<=)27度
 ![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0528.JPG)
-### 當前溫度(<=)29度
+#### 當前溫度(<=)29度
 ![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0525.JPG)
-### 當前溫度(<=)27度
+#### 當前溫度(<=)27度
 ![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0527.JPG)
