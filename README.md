@@ -578,3 +578,4 @@ void loop() {
 }
 ```
 #### 功能：溫度大於27度並小於29度時燈會亮 否則不亮
+![](https://github.com/yliao262/Arunduino/blob/main/%E6%BA%AB%E6%BA%BC%E5%BA%A6%E5%9C%96/DSC_0525.JPG)
