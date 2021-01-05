@@ -655,11 +655,23 @@ delay(500);
 }
 ```
 #### 功能：隨著 類比 XYZ 三軸加速度角度感測器的位置變化亮不同的LED燈( 有4顆燈 (X-),(X+),(Y-),(Y+) )
-#### 當前位置變化：向右轉
+#### 當前位置變化：水平 
+![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E6%B0%B4%E5%B9%B3.JPG)
+
+#### 當前位置變化：向右轉 (X+)
 ![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%8F%B3.JPG)
-#### 當前位置變化：向左轉
+#### 當前位置變化：向左轉 (X-)
 ![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%B7%A6.JPG)
-#### 當前位置變化：向前轉
+#### 當前位置變化：向前轉 (Y-)
 ![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%89%8D.JPG)
-#### 當前位置變化：向後轉
+#### 當前位置變化：向後轉 (Y+)
 ![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%BE%8C.JPG)
+
+#### 當前位置變化：前右 (X+)(Y-)
+![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%8F%B3%E5%89%8D.JPG)
+#### 當前位置變化：前左 (X-)(Y-)
+![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%B7%A6%E5%89%8D.JPG)
+#### 當前位置變化：後右 (X+)(Y+)
+![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%8F%B3%E5%BE%8C.JPG)
+#### 當前位置變化：後左 (X-)(Y+)
+![](https://github.com/yliao262/Arunduino/blob/main/%E9%99%80%E8%9E%BA%E5%84%80%E5%9C%96/%E9%99%80%E8%9E%BA%E5%84%80_%E5%B7%A6%E5%BE%8C.JPG)
